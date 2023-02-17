@@ -13,7 +13,8 @@
 #   math_engine: mathjax
 #   syntax_highlighter: rouge
 
-  
+theme: minima
+
 collections:
   authors:
     output: true
