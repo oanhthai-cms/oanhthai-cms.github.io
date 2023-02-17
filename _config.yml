@@ -1,17 +1,17 @@
-domain: oanhthai-cms.github.io       # if you want to force HTTPS, specify the domain without the http at the start, e.g. example.com
-url: https://oanhthai-cms.github.io  # the base hostname and protocol for your site, e.g. http://example.com
-baseurl: /oanhthai-cms.github.io/  
+# domain: oanhthai-cms.github.io       # if you want to force HTTPS, specify the domain without the http at the start, e.g. example.com
+# url: https://oanhthai-cms.github.io  # the base hostname and protocol for your site, e.g. http://example.com
+# baseurl: /oanhthai-cms.github.io/  
 
-lsi: false
-safe: true
-source: [your repo's top level directory]
-incremental: false
-highlighter: rouge
-gist:
-  noscript: false
-kramdown:
-  math_engine: mathjax
-  syntax_highlighter: rouge
+# lsi: false
+# safe: true
+# source: [your repo's top level directory]
+# incremental: false
+# highlighter: rouge
+# gist:
+#   noscript: false
+# kramdown:
+#   math_engine: mathjax
+#   syntax_highlighter: rouge
 
   
 collections:
