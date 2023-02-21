@@ -1,0 +1,20 @@
+datasource:
+  $type: contentTypeDatasource
+  workspace: authors
+  autoCreate: true
+model:
+  nodeType: activity
+  properties:
+    name:
+      label: Name
+      i18n: true
+      required: true
+    content:
+      type: richText
+      label: Content
+      i18n: true
+      required: false
+    short_name: 
+      label: short_name
+    position: 
+      label: Position

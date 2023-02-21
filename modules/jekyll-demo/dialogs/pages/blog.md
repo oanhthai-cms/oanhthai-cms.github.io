@@ -1,5 +1,5 @@
 ---
-title: blog
+title: <%=data["title"]%>
 ---
 <h1>Latest Posts</h1>
 

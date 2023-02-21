@@ -1,0 +1,67 @@
+---
+- id: 9d2a9e66-eb3a-4273-aa59-0e66b7073e71
+  name: about
+  path: /about
+  layout: default
+  body: This is about Ichiko
+  title: About Ichiko
+  extras:
+    name: extras
+    path: /about/extras
+    components:
+      name: components
+      path: /about/extras/components
+      nodes: []
+    nodes:
+    - components
+  main:
+    name: main
+    path: /about/main
+    components:
+      name: components
+      path: /about/main/components
+      nodes: []
+    nodes:
+    - components
+  nodes:
+  - extras
+  - main
+- id: 47b8a725-e99a-4fd9-8c27-ff2cc2e747ac
+  name: blog
+  path: /blog
+  layout: default
+  title: blog
+  nodes: []
+- id: 0526ed13-215c-4c8f-941c-2354f5bcd330
+  name: staff
+  path: /staff
+  layout: default
+  title: staff
+  nodes: []
+- id: 902d1da0-e152-4c01-8c03-af838e53627b
+  name: index
+  path: /index
+  layout: default
+  body: This is home page of Ichiko tell about nothing
+  title: Hello Ichiko
+  extras:
+    name: extras
+    path: /index/extras
+    components:
+      name: components
+      path: /index/extras/components
+      nodes: []
+    nodes:
+    - components
+  main:
+    name: main
+    path: /index/main
+    components:
+      name: components
+      path: /index/main/components
+      nodes: []
+    nodes:
+    - components
+  nodes:
+  - extras
+  - main

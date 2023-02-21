@@ -1,0 +1,22 @@
+datasource:
+  workspace: blogs
+  $type: contentTypeDatasource
+  autoCreate: true
+model:
+  nodeType: blogs
+  properties:
+    author: 
+      label: author
+      options:
+        jill:
+          value: jill
+          label: Jill
+        ted:
+          value: ted
+          label: Ted
+    content:
+      type: richText
+      label: Content
+      i18n: true
+      required: false
+

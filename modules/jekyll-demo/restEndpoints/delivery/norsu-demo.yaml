@@ -1,0 +1,47 @@
+$type: deliveryEndpoint_v2
+includeSystemProperties: true
+depth: 15
+workspace: /
+# referenceRepeat: true
+
+# referenceDepth: 15
+# references:
+#   - name: tourReference
+#     propertyName: tours
+#     referenceResolver:
+#       $type: norsuReferenceResolver
+#       targetWorkspace: magnolia-travels
+#       expand: true
+#   - name: image
+#     propertyName: image
+#     referenceResolver:
+#       $type: assetReferenceResolver
+#       assetRenditions:
+#         - 320x240
+#       expand: true
+#   - name: page
+#     propertyName: page
+#     referenceResolver:
+#       $type: norsuReferenceResolver
+#       targetWorkspace: website
+#       expand: true
+#   - name: simpleModel
+#     propertyName: simpleModel
+#     referenceResolver:
+#       $type: norsuReferenceResolver
+#       targetWorkspace: magnolia-travels
+#       expand: true
+#   # - name: dam
+#   #   propertyName: dam
+#   #   referenceResolver:
+#   #     $type: norsuReferenceResolver
+#   #     targetWorkspace: dam
+#   #     expand: true
+#   - name: pageNorsuRichTextReferenceResolver
+#     propertyName: richtext-page
+#     referenceResolver:
+#       $type: norsuRichTextReferenceResolver
+#   - name: damNorsuRichTextReferenceResolver
+#     propertyName: richtext-dam
+#     referenceResolver:
+#       $type: norsuRichTextReferenceResolver

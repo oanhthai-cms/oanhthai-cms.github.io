@@ -1,7 +1,7 @@
 ---
-layout: default
-title: About Ichiko
-body: This is about Ichiko
+layout: <%=data["layout"]%>
+title: <%=data["title"]%>
+body: <%=data["body"]%>
 ---
 # About page
 

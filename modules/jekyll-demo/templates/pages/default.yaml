@@ -1,0 +1,9 @@
+title: 'Jekyll Home'
+
+baseUrl: http://127.0.0.1:4000/
+routeTemplate: '/{language}{{@path}}'
+
+dialog: jekyll-demo:pages/home
+
+renderType: spa
+$type: spa

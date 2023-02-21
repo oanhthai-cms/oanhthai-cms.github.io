@@ -1,6 +1,6 @@
 ---
-layout: default
-title: staff
+layout: <%=data["layout"]%>
+title: <%=data["title"]%>
 ---
 <h1>Staff</h1>
 

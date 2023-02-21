@@ -1,0 +1,13 @@
+label: Jekylly Home Properties
+form:
+  properties:
+    title:
+      label: Title
+      $type: textField
+    body:
+      label: Body
+      $type: textField
+    layout:
+      label: Layout
+      $type: textField
+      defaultValue: default
