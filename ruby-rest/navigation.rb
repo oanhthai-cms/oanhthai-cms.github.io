@@ -5,7 +5,7 @@ require 'net/http'
 require 'yaml'
 require 'json'
 
-uri = URI('http://localhost:8080/container/.rest/delivery/pagenav/v1')
+uri = URI('http://localhost:8080/container/.rest/delivery/jekyllnav/v1')
 res = Net::HTTP.get_response(uri)
 
 json = res.body if res.is_a?(Net::HTTPSuccess)

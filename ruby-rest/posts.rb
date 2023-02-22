@@ -6,7 +6,7 @@ require 'yaml'
 require 'json'
 require 'erb'
 
-uri = URI('http://localhost:8080/container/.rest/delivery/norsu-demo/blogs@nodes')
+uri = URI('http://localhost:8080/container/.rest/delivery/jekyll-demo/blogs@nodes')
 res = Net::HTTP.get_response(uri)
 
 json = res.body if res.is_a?(Net::HTTPSuccess)

@@ -8,7 +8,7 @@ require 'json'
 require 'erb'
 
 
-uri = URI('http://localhost:8080/container/.rest/delivery/norsu-demo/website/staff')
+uri = URI('http://localhost:8080/container/.rest/delivery/jekyll-demo/website/staff')
 res = Net::HTTP.get_response(uri)
 
 
