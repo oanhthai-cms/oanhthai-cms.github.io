@@ -4,6 +4,9 @@ require 'yaml'
 require 'json'
 require 'erb'
 
+restPath = "http://localhost:8080/container/.rest/delivery"
+fileStorePath = "/Users/oanh.thai/git/oanhthai-cms"
+
 # Create a func
 # Creating a Function
 def myFunc(url, templateFile)
@@ -26,10 +29,10 @@ puts new_msg
 end
 
 # Calling the function create author
-value = myFunc('http://localhost:8080/container/.rest/delivery/jekyll-demo/authors@nodes',"/Users/oanh.thai/git/oanhthai-cms/ruby-rest/templates/authors.md")
+value = myFunc(restPath+'/jekyll-demo/authors@nodes',"/Users/oanh.thai/git/oanhthai-cms/ruby-rest/templates/authors.md")
 
 # Call and create data for post first
-uri = URI('http://localhost:8080/container/.rest/delivery/jekyll-demo/blogs@nodes')
+uri = URI(restPath+'/jekyll-demo/blogs@nodes')
 res = Net::HTTP.get_response(uri)
 
 json = res.body if res.is_a?(Net::HTTPSuccess)
@@ -49,7 +52,7 @@ puts new_msg
 end
 
 # Create navigation 
-uri = URI('http://localhost:8080/container/.rest/delivery/jekyllnav/v1')
+uri = URI(restPath+'/jekyllnav/v1')
 res = Net::HTTP.get_response(uri)
 json = res.body if res.is_a?(Net::HTTPSuccess)
 navs = JSON.parse(json)
@@ -65,7 +68,7 @@ navsResults.length.times do |i|
 
     data = navsResults[i]
     name = data["@name"].to_s
-    uri = URI('http://localhost:8080/container/.rest/delivery/jekyll-demo/website/'+name)
+    uri = URI(restPath+'/jekyll-demo/website/'+name)
     res = Net::HTTP.get_response(uri)
     json = res.body if res.is_a?(Net::HTTPSuccess)
     data = JSON.parse(json)
