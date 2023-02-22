@@ -1,0 +1,27 @@
+---
+- name: index
+  id: bb22bfeb-869f-481c-a1ca-ca495e56cc9a
+  path: /index
+  layout: home
+  body: home home home
+  title: this is index page
+  nodes: []
+- name: about
+  id: 2b258d9b-02bd-4bfe-bb65-d384e67f4def
+  path: /about
+  layout: page
+  body: about
+  title: this is about
+  nodes: []
+- name: blog
+  id: 729fe1ea-a11e-49e3-a4fc-24e95bc42728
+  path: /blog
+  layout: default
+  title: this is any blog
+  nodes: []
+- name: staff
+  id: 752c5e69-87c8-42f9-93e1-69ee91139b9c
+  path: /staff
+  layout: default
+  title: stafff
+  nodes: []
