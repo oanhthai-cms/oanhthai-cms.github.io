@@ -1,5 +1,9 @@
-<nav>
+<header class="site-header">
+  <div class="wrapper">
+  <nav class="site-nav">
     {% for item in site.data.testnavigation %}
       <a href="{{ item.path }}" {% if page.url == item.path %}class="current"{% endif %}>{{ item.name }}</a>
     {% endfor %}
   </nav>
+  </div>
+</header>

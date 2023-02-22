@@ -1,0 +1,323 @@
+appClass: info.magnolia.ui.framework.app.BaseApp
+label: Norsu Content App
+icon: icon-definitions-app
+class: info.magnolia.ui.contentapp.configuration.ContentAppDescriptor
+datasource:
+  $type: contentDatasource
+subApps:
+  browser:
+    label: Grids and stuff
+    subAppClass: info.magnolia.ui.contentapp.ContentBrowserSubApp
+    class: info.magnolia.ui.contentapp.configuration.BrowserDescriptor
+    closable: false
+    workbench:
+      contentViews:
+        - name: list
+          $type: listView
+          columns:
+            - name: title
+              $type: titleColumn
+            - name: status
+              $type: statusColumn
+            - name: path
+              $type: pathColumn
+            - name: mgnl:lastModified
+              $type: lastModifiedColumn
+            - name: name
+              label: name
+            - name: foo
+              label: foo
+            - name: bar
+              label: bar
+            - name: qux
+              type: java.lang.Boolean
+              label: qux
+
+        - name: tree
+          $type: treeView
+          columns:
+            - name: title
+              $type: titleColumn
+              label: hello
+            - name: name
+              label: name
+            - name: foo
+              label: foo
+    actions:
+      addItem:
+        $type: openDetailSubappAction
+        label: Add
+        icon: icon-view
+        appName: content-app
+        subAppName: detail
+        viewType: add
+        availability:
+          root: true
+      addFolder:
+        icon: icon-add-folder
+        dialogId: norsu-ui:addFolder
+        $type: openDialogAction
+        populate: false
+        availability:
+          writePermissionRequired: true
+          root: true
+          folder: true
+      renameNode:
+        $type: openDialogAction
+        dialogId: norsu-ui:rename
+        label: Rename
+        icon: icon-edit
+      confirmDeletion:
+        $type: confirmationAction
+        label: Delete 🧪
+        successActionName: delete
+        icon: icon-delete
+        availability:
+          multiple: true
+          properties: true
+          writePermissionRequired: true
+      duplicate:
+        $type: duplicateAction
+        icon: icon-duplicate
+        availability:
+          properties: false
+          writePermissionRequired: true
+      move:
+        $type: moveAction
+        dialogId: norsu-ui:move
+        icon: icon-move
+      delete:
+        $type: deleteAction
+        asynchronous: true
+        availability:
+          writePermissionRequired: true
+      editNode:
+        $type: openDetailSubappAction
+        label: Edit
+        icon: icon-view
+        appName: content-app
+        subAppName: detail
+        viewType: edit
+      publish:
+        $type: publishAction
+        recursive: false
+        label: Publish node
+        icon: icon-publish
+        availability:
+          nodes: true
+          root: false
+          rules:
+            - $type: canPublishRule
+      publishRecursive:
+        $type: publishAction
+        label: Publish node with children
+        icon: icon-publish-incl-sub
+        availability:
+          nodes: true
+          root: false
+          rules:
+            - $type: canPublishRule
+      unpublishRecursive:
+        $type: unpublishAction
+        label: Unpublish node with children
+        icon: icon-publish-incl-sub
+        availability:
+          nodes: true
+          root: false
+          rules:
+            - $type: canUnpublishRule
+    actionbar:
+      deleteAction: confirmDeletion
+      sections:
+        nodes:
+          label: Node operations
+          groups:
+            operations:
+              items:
+                - name: addItem
+                - name: addFolder
+                - name: editNode
+                - name: renameNode
+                - name: confirmDeletion
+                - name: duplicate
+                - name: move
+                - name: publish
+                - name: publishRecursive
+                - name: unpublishRecursive
+          availability:
+            root: true
+
+  detail:
+    label: Edit Norsu Node
+    class: info.magnolia.ui.contentapp.detail.DetailDescriptor
+    itemProvider:
+      $type: nodeFromLocationProvider
+    form:
+      properties:
+        name:
+          $type: nameField
+        foo:
+          i18n: true
+          label: foo
+          $type: richTextField
+        bar:
+          label: bar
+          $type: textField
+          required: true
+        multiValue:
+          $type: multiValueField
+        multiField:
+          $type: multiField
+          field:
+            $type: compositeField
+            properties:
+              text:
+                $type: textField
+              checkBoxAndTimestamp:
+                $type: multiField
+                field:
+                  $type: compositeField
+                  properties:
+                    checkBox:
+                      $type: checkBoxField
+                    timestampField:
+                      $type: timestampField
+        qux:
+          label: qux
+          $type: checkBoxField
+        xyzzy:
+          time: true
+          label: xyzzy
+          $type: timestampField
+        optionList:
+          label: Option List
+          $type: comboBoxField
+          datasource:
+            $type: optionListDatasource
+            options:
+              - name: mr
+                label: Mr.
+                value: mr
+              - name: mrs
+                label: Mrs.
+                value: mrs
+              - name: miss
+                label: Miss
+                value: miss
+        norsuCombo:
+          label: Norsu Source
+          $type: comboBoxField
+          datasource: &contentDatasource
+            $type: contentDatasource
+            descriptionProperty: name
+            previewProperty: name
+            rootPath: /authors
+        norsuList:
+          label: List field
+          $type: listSelectField
+          datasource: *contentDatasource
+        twinSelect:
+          label: twinSelect
+          $type: twinColSelectField
+          leftColumnCaption: "Available groups"
+          rightColumnCaption: "User is member of"
+          datasource: *contentDatasource
+        tokensOption:
+          label: tokens Option
+          $type: tokenField
+          description: Option list
+          comboBox:
+            datasource:
+              $type: optionListDatasource
+              options:
+                - name: foo
+                  value: foo
+                - name: bar
+                  value: bar
+        tokensDataSource:
+          label: tokens Datasource
+          $type: tokenField
+          description: Norsu Datasource
+          comboBox:
+            datasource: *contentDatasource
+        checkboxGroup:
+          $type: checkBoxGroupField
+          defaultValue:
+            - Mahler
+            - Bach
+          datasource:
+            $type: optionListDatasource
+            options:
+              - name: Vivaldi
+                value: Vivaldi
+              - name: Bach
+                value: Bach
+              - name: Bartok
+                value: Bartok
+              - name: Stravinsky
+                value: Stravinsky
+              - name: Mahler
+                value: Mahler
+        NorsucheckboxGroup:
+          $type: checkBoxGroupField
+          datasource: *contentDatasource
+        norsuRadioGroup:
+          $type: radioButtonGroupField
+          datasource: *contentDatasource
+        slider:
+          $type: sliderField
+          defaultValue: 50
+          stepSize: 5
+          displayStepSize: 25
+          valueFormat: PERCENTAGE
+        linkField:
+          $type: linkField
+          datasource: *contentDatasource
+        tourEvent:
+          $type: compositeField
+          label: Tour event
+          layout:
+            $type: stacked
+          properties:
+            tourName:
+              label: Event name
+              $type: textField
+            tourDates:
+              $type: compositeField
+              label: Event dates
+              layout:
+                $type: horizontal
+              properties:
+                startDate:
+                  label: Start date
+                  $type: timestampField
+                endDate:
+                  label: End date
+                  $type: timestampField
+            tourLinks:
+              $type: multiField
+              label: Event links
+              buttonSelectAddLabel: Add
+              field:
+                $type: switchableField
+                field:
+                  $type: radioButtonGroupField
+                  datasource:
+                    $type: optionListDatasource
+                    options:
+                      internal:
+                        value: internal
+                        label: Internal
+                      external:
+                        value: external
+                        label: External
+                forms:
+                  internal:
+                    properties:
+                      pageLink:
+                        $type: linkField
+                        datasource: *contentDatasource
+                  external:
+                    properties:
+                      externalLink:
+                        $type: textField

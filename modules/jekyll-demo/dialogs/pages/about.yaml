@@ -10,4 +10,4 @@ form:
     layout:
       label: Layout
       $type: textField
-      defaultValue: default
+      defaultValue: page
